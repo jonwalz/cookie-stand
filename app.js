@@ -6,22 +6,21 @@ var pioneerSquare = {
     averageSales: 5.2,
     openHour: 10,
     closeHour: 18,
+    salesPerHour: [],
 
     // Uses a method of that object to generate a random number of customers per hour
     randomCustomersPerHour: function() {
-        var salesPerHour = [];
-        var listBuilt = '<ul>';
+        var listBuilt = '';
         listBuilt += '<h1>' + this.locationName + '</h1>';
+        listBuilt += '<ul>';
 
         for (var i = this.openHour; i <= this.closeHour; i++) {
 
             // Calculate simulated amounts of cookies purchased for each hour using average cookies purchased and the random number of customers generated
             var randCookiesSales = Math.random() * (this.maxHourlyCust - this.minHourlyCust);
             // Store the results for each location in a separate array
-            salesPerHour.push(parseInt(randCookiesSales));
-            // console.log(randCookiesSales);
+            this.salesPerHour.push(parseInt(randCookiesSales));
             listBuilt += '<li>';
-            // listBuilt += this.openHour;
             var hour = this.openHour;
             if (hour < 12) {
                 listBuilt += this.openHour;
@@ -34,7 +33,7 @@ var pioneerSquare = {
                 // hour = (hour - 12);
                 listBuilt += 'pm';
             }
-            listBuilt += " " + salesPerHour[0] + "<br />";
+            listBuilt += " " + this.salesPerHour[i-10] + "<br />";
             listBuilt += '</li>';
             this.openHour++;
 
@@ -50,3 +49,5 @@ var portlandAirport = {};
 var washingtonSquare = {};
 var sellwood = {};
 var pearlDistrict = {};
+
+pioneerSquare.randomCustomersPerHour();
