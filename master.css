@@ -1,23 +1,23 @@
 body {
     background-color: #7ECEFD;
-    color: #FFF6E5;
+    color: #E8E8E8;
 }
 h1, h2, h3, h4 {
     font-family: 'Open Sans', sans-serif;
     color: #FFF6E5;
-
 }
 
 table {
     width: 70%;
     max-width: 900px;
     margin: 20px auto;
-    padding: 20px;
-    text-align: center;
+    padding: 20px 40px;
+    /*text-align: center;*/
     background-color: #2185C5;
     color: #FFF6E5;
 }
 table th {
+    text-align: left;
     height: 50px;
     font-family: 'Arvo', serif;
     letter-spacing: 0.25em;
@@ -26,8 +26,28 @@ table th {
 }
 
 table td {
+    padding-left: 20px;
     width: 50%;
     font-family: 'VT323', monospace;
     font-weight: 400;
     line-height: 1.7em;
+    color: #FFBFB2;
+}
+
+.colorDivs {
+    color: black;
+    display: inline-block;
+    width: 200px;
+    border: 1px solid black;
+    padding: 30px;
+}
+
+#color1div {
+    background-color: #7ECEFD;
+}
+#color2div {
+    background-color: #FFFCC4;
+}
+#color3div {
+    background-color: #FFBFB2;
 }
