@@ -21,6 +21,10 @@ body {
     left: 0;
     padding: 10px;
 }
+.container {
+    background-color: #2185C5;
+    padding: 1em;
+}
 h1, h2, h3, h4 {
     font-family: 'Open Sans', sans-serif;
     color: #FFF6E5;
@@ -28,7 +32,6 @@ h1, h2, h3, h4 {
 .highlightText {
     font-family: 'Yellowtail', cursive;
     vertical-align: middle;
-    text-align: right;
 }
 table:first-of-type {
     margin-top: 100px;
@@ -58,7 +61,9 @@ table td {
     line-height: 1.7em;
     color: #FFBFB2;
 }
-
+.data {
+    font-family: 'VT323', monospace;
+}
 .colorDivs {
     color: black;
     display: inline-block;
