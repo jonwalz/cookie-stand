@@ -19,7 +19,9 @@ var pioneerSquare = {
         for (var i = this.openHour; i <= this.closeHour; i++) {
             listBuilt += '<tr><td>';
             // Calculate simulated amounts of cookies purchased for each hour using average cookies purchased and the random number of customers generated
-            var randCookiesSales = Math.random() * (this.maxHourlyCust - this.minHourlyCust);
+            var randomCustomers = Math.floor((Math.random() * (this.maxHourlyCust - this.minHourlyCust))+this.minHourlyCust);
+            console.log(randomCustomers);
+            var randCookiesSales = randomCustomers * this.averageSales;
             // Store the results for each location in a separate array
             this.salesPerHour.push(parseInt(randCookiesSales));
 
@@ -72,7 +74,9 @@ var portlandAirport = {
         for (var i = this.openHour; i <= this.closeHour; i++) {
             listBuilt += '<tr><td>';
             // Calculate simulated amounts of cookies purchased for each hour using average cookies purchased and the random number of customers generated
-            var randCookiesSales = Math.random() * (this.maxHourlyCust - this.minHourlyCust);
+            var randomCustomers = Math.floor((Math.random() * (this.maxHourlyCust - this.minHourlyCust))+this.minHourlyCust);
+            console.log(randomCustomers);
+            var randCookiesSales = randomCustomers * this.averageSales;
             // Store the results for each location in a separate array
             this.salesPerHour.push(parseInt(randCookiesSales));
 
@@ -125,7 +129,9 @@ var washingtonSquare = {
         for (var i = this.openHour; i <= this.closeHour; i++) {
             listBuilt += '<tr><td>';
             // Calculate simulated amounts of cookies purchased for each hour using average cookies purchased and the random number of customers generated
-            var randCookiesSales = Math.random() * (this.maxHourlyCust - this.minHourlyCust);
+            var randomCustomers = Math.floor((Math.random() * (this.maxHourlyCust - this.minHourlyCust))+this.minHourlyCust);
+            console.log(randomCustomers);
+            var randCookiesSales = randomCustomers * this.averageSales;
             // Store the results for each location in a separate array
             this.salesPerHour.push(parseInt(randCookiesSales));
 
@@ -178,7 +184,9 @@ var sellwood = {
         for (var i = this.openHour; i <= this.closeHour; i++) {
             listBuilt += '<tr><td>';
             // Calculate simulated amounts of cookies purchased for each hour using average cookies purchased and the random number of customers generated
-            var randCookiesSales = Math.random() * (this.maxHourlyCust - this.minHourlyCust);
+            var randomCustomers = Math.floor((Math.random() * (this.maxHourlyCust - this.minHourlyCust))+this.minHourlyCust);
+            console.log(randomCustomers);
+            var randCookiesSales = randomCustomers * this.averageSales;
             // Store the results for each location in a separate array
             this.salesPerHour.push(parseInt(randCookiesSales));
 
@@ -231,7 +239,9 @@ var pearlDistrict = {
         for (var i = this.openHour; i <= this.closeHour; i++) {
             listBuilt += '<tr><td>';
             // Calculate simulated amounts of cookies purchased for each hour using average cookies purchased and the random number of customers generated
-            var randCookiesSales = Math.random() * (this.maxHourlyCust - this.minHourlyCust);
+            var randomCustomers = Math.floor((Math.random() * (this.maxHourlyCust - this.minHourlyCust))+this.minHourlyCust);
+            console.log(randomCustomers);
+            var randCookiesSales = randomCustomers * this.averageSales;
             // Store the results for each location in a separate array
             this.salesPerHour.push(parseInt(randCookiesSales));
 
@@ -263,8 +273,8 @@ var pearlDistrict = {
     }
 };
 
-pioneerSquare.randomCustomersPerHour();
-portlandAirport.randomCustomersPerHour();
-washingtonSquare.randomCustomersPerHour();
-sellwood.randomCustomersPerHour();
-pearlDistrict.randomCustomersPerHour();
+var locations = [pioneerSquare,portlandAirport,washingtonSquare,sellwood,pearlDistrict];
+
+for (var i = 0; i < locations.length; i++) {
+    locations[i].randomCustomersPerHour();
+}
