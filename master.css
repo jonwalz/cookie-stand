@@ -1,12 +1,12 @@
-html {
+* {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 }
 
 body {
     background-color: #7ECEFD;
     color: #E8E8E8;
+    margin: 0;
+    padding: 0;
 }
 #logo {
     max-width: 160px;
@@ -50,7 +50,7 @@ table th {
     font-family: 'Arvo', serif;
     letter-spacing: 0.25em;
     font-weight: 300;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 table td {
@@ -60,6 +60,12 @@ table td {
     font-weight: 400;
     line-height: 1.7em;
     color: #FFBFB2;
+}
+table tr:nth-child(even) {
+    background-color: #439ad1;
+}
+table tr:hover {
+    background-color: #1c0380;
 }
 .data {
     font-family: 'VT323', monospace;
@@ -80,4 +86,12 @@ table td {
 }
 #color3div {
     background-color: #FFBFB2;
+}
+
+footer {
+    text-align: right;
+    width: 100%;
+    padding: 30px;
+    background-color: #2185C5;
+    margin: 0;
 }
