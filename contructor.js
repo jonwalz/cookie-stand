@@ -9,4 +9,4 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales, elem
 
 var pioneerSquare = new Location("Pioneer Square", 17, 88, 5.2);
 
-console.log(pioneerSquare);
+console.log(pioneerSquare.minHourlyCust);
