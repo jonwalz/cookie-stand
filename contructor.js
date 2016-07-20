@@ -5,11 +5,24 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales, elem
     this.averageSales = averageSales;
 
     this.elementName = elementName;
+    randomCustomersPerHour = function(){
+
+    };
+    this.addLocation = function(){
+        var timeRow = document.createElement("tr");
+        var timeCel = documenbt.createElement("td");
+        timeCel.innerText = this.locationName;
+        timeRow.appendChild(timeCel);
+        var salesCel = document.createElement("td");
+        salesCel.innerText = this.averageSales;
+        timeRow.appendChild(salesCel);
+
+        var table = document.getElementById("");
+    };
+
 }
 
 var pioneerSquare = new Location("Pioneer Square", 17, 88, 5.2);
-
-console.log(pioneerSquare.minHourlyCust);
 
 var locations = [
     new Location("Pioneer Square", 17, 88, 5.2),
@@ -18,3 +31,11 @@ var locations = [
     new Location("Sellwood", 20, 48, 3.3),
     new Location("Pearl District", 3, 24, 2.6)
 ];
+
+function addLocation(){
+
+}
+
+for (var i = 0; i < locations.length; i++) {
+    locations[i]
+}
