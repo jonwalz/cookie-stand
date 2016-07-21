@@ -10,7 +10,7 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales, elem
     };
     this.addLocation = function(){
         var timeRow = document.createElement("tr");
-        var timeCel = documenbt.createElement("td");
+        var timeCel = document.createElement("td");
         timeCel.innerText = this.locationName;
         timeRow.appendChild(timeCel);
         var salesCel = document.createElement("td");
@@ -18,11 +18,10 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales, elem
         timeRow.appendChild(salesCel);
 
         var table = document.getElementById("table");
+        table.appendChild(timeRow);
     };
 
 }
-
-var pioneerSquare = new Location("Pioneer Square", 17, 88, 5.2);
 
 var locations = [
     new Location("Pioneer Square", 17, 88, 5.2),
@@ -32,13 +31,15 @@ var locations = [
     new Location("Pearl District", 3, 24, 2.6)
 ];
 
-// create table headers
+// create table header "Daily Sales"
 var table = document.getElementById("table");
 var tableHeaderRow = document.createElement("tr");
 var tableHeaderCel = document.createElement("th");
 tableHeaderCel.innerText = "Daily Sales";
-
+tableHeaderRow.appendChild(tableHeaderCel);
+table.appendChild(tableHeaderRow);
 
 for (var i = 0; i < locations.length; i++) {
-    locations[i]
+    locations[i].addLocation();
+    console.log(locations[i]);
 }
