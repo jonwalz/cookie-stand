@@ -64,6 +64,24 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales, elem
             table.appendChild(tableRow);
             openHour++;
         }
+        
+        // List total day sales
+        var total = 0;
+        for (var j = 0; j < salesPerHour.length; j++) {
+            total += salesPerHour[j];
+        }
+        var totalRow = document.createElement('tr');
+        var totalNode = document.createElement('td');
+        var totalTdTextNode = document.createElement('td');
+        var totalWordTextNode = document.createTextNode('Total:');
+        var dataTotal = document.createTextNode(total);
+
+        totalTdTextNode.appendChild(totalWordTextNode);
+        totalRow.appendChild(totalTdTextNode);
+
+        totalNode.appendChild(dataTotal);
+        totalRow.appendChild(totalNode);
+        table.appendChild(totalRow);
         return table;
     };
 
