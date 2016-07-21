@@ -8,6 +8,18 @@ body {
     margin: 0;
     padding: 0;
 }
+aside, section {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 100px;
+}
+aside {
+    width: 15%;
+}
+section {
+    width: 75%;
+    
+}
 #logo {
     max-width: 160px;
     vertical-align: middle;
@@ -34,9 +46,7 @@ h1, h2, h3, h4 {
     font-family: 'Yellowtail', cursive;
     vertical-align: middle;
 }
-table:first-of-type {
-    margin-top: 100px;
-}
+
 table {
     width: 70%;
     max-width: 750px;

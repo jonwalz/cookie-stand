@@ -1,4 +1,4 @@
-function Location(locationName, minHourlyCust, maxHourlyCust, averageSales, elementName) {
+function Location(locationName, minHourlyCust, maxHourlyCust, averageSales) {
     this.locationName = locationName;
     this.minHourlyCust = minHourlyCust;
     this.maxHourlyCust = maxHourlyCust;
@@ -6,7 +6,6 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales, elem
     this.openHour = 10;
     this.closeHour = 18;
 
-    this.elementName = elementName;
     randomCustomersPerHour = function() {
 
     };
