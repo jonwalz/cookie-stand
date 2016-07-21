@@ -17,7 +17,7 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales, elem
         salesCel.innerText = this.averageSales;
         timeRow.appendChild(salesCel);
 
-        var table = document.getElementById("");
+        var table = document.getElementById("table");
     };
 
 }
@@ -32,9 +32,12 @@ var locations = [
     new Location("Pearl District", 3, 24, 2.6)
 ];
 
-function addLocation(){
+// create table headers
+var table = document.getElementById("table");
+var tableHeaderRow = document.createElement("tr");
+var tableHeaderCel = document.createElement("th");
+tableHeaderCel.innerText = "Daily Sales";
 
-}
 
 for (var i = 0; i < locations.length; i++) {
     locations[i]
