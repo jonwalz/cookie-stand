@@ -3,22 +3,68 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales, elem
     this.minHourlyCust = minHourlyCust;
     this.maxHourlyCust = maxHourlyCust;
     this.averageSales = averageSales;
+    this.openHour = 10;
+    this.closeHour = 18;
 
     this.elementName = elementName;
-    randomCustomersPerHour = function(){
+    randomCustomersPerHour = function() {
 
     };
-    this.addLocation = function(){
-        var timeRow = document.createElement("tr");
-        var timeCel = document.createElement("td");
+    this.addLocation = function() {
+        
+        var table = document.createElement('table');
+        var timeCol = document.createElement("tr");
+        var timeCel = document.createElement("th");
         timeCel.innerText = this.locationName;
-        timeRow.appendChild(timeCel);
-        var salesCel = document.createElement("td");
-        salesCel.innerText = this.averageSales;
-        timeRow.appendChild(salesCel);
+        timeCol.appendChild(timeCel);
+        var salesCel = document.createElement("th");
+        salesCel.innerText = "Hourly Sales";
+        timeCol.appendChild(salesCel);
+        table.appendChild(timeCol);
 
-        var table = document.getElementById("table");
-        table.appendChild(timeRow);
+        var openHour = this.openHour;
+        var closeHour = this.closeHour;
+        var salesPerHour = [];
+
+        // build sales array
+        for (var j = openHour; j <= closeHour; j++) {
+            // Calculate simulated amounts of cookies purchased for each hour using average cookies purchased and the random number of customers generated
+            var randomCustomers = Math.floor((Math.random() * (this.maxHourlyCust - this.minHourlyCust)) + this.minHourlyCust);
+            var randCookiesSales = randomCustomers * this.averageSales;
+
+            // Store the results for each location in a separate array
+            salesPerHour.push(parseInt(randCookiesSales));
+        }
+
+        for (var i = 0; i < salesPerHour.length; i++) {    
+            var tableRow = document.createElement('tr');
+            var timeNode = document.createElement('td');
+            var salesNode = document.createElement('td');
+            var sales = document.createTextNode(salesPerHour[i]);
+
+            var hour = openHour;
+            
+            if (hour < 12) {
+                var timeAm = document.createTextNode(openHour + 'am');
+                timeNode.appendChild(timeAm);
+                salesNode.appendChild(sales);
+                
+            } else if (hour == 12) {
+                var timeNoon = document.createTextNode(openHour + 'pm');
+                timeNode.appendChild(timeNoon);
+                salesNode.appendChild(sales);
+                
+            } else {
+                var timePm = document.createTextNode(openHour - 12 + 'pm');
+                timeNode.appendChild(timePm);
+                salesNode.appendChild(sales);
+            }
+            tableRow.appendChild(timeNode);
+            tableRow.appendChild(salesNode);
+            table.appendChild(tableRow);
+            openHour++;
+        }
+        return table;
     };
 
 }
@@ -31,15 +77,11 @@ var locations = [
     new Location("Pearl District", 3, 24, 2.6)
 ];
 
-// create table header "Daily Sales"
-var table = document.getElementById("table");
-var tableHeaderRow = document.createElement("tr");
-var tableHeaderCel = document.createElement("th");
-tableHeaderCel.innerText = "Daily Sales";
-tableHeaderRow.appendChild(tableHeaderCel);
-table.appendChild(tableHeaderRow);
-
 for (var i = 0; i < locations.length; i++) {
-    locations[i].addLocation();
-    console.log(locations[i]);
-}
+    
+    var newTable = locations[i].addLocation();
+
+    var tablesContainer = document.getElementById("tables");
+    tablesContainer.appendChild(newTable);
+
+};
