@@ -102,3 +102,14 @@ for (var i = 0; i < locations.length; i++) {
     tablesContainer.appendChild(newTable);
 
 };
+
+// Button logic
+
+var button = document.getElementById('locationBtn');
+
+button.addEventListener("click", function(){
+    var locationName, minCust, maxCust, avgSls;
+    locationName = document.getElementById('name').value;
+    console.log(locationName);
+    Location();
+})
