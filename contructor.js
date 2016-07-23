@@ -68,6 +68,7 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales) {
             total += salesPerHour[j];
         }
         var totalRow = document.createElement('tr');
+        totalRow.className += "totalRow";
         var totalNode = document.createElement('td');
         var totalTdTextNode = document.createElement('td');
         var totalWordTextNode = document.createTextNode('Total:');
@@ -79,6 +80,19 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales) {
         totalNode.appendChild(dataTotal);
         totalRow.appendChild(totalNode);
         table.appendChild(totalRow);
+
+        // delete this table option
+        var deleteRow = document.createElement('tr');
+        deleteRow.className = "deleteRow";
+        var deleteCel = document.createElement('td');
+        deleteCel.colSpan = "2";
+        var deleteText = document.createTextNode('DELETE THIS TABLE');
+
+        deleteCel.appendChild(deleteText);
+        deleteRow.appendChild(deleteCel);
+        table.appendChild(deleteRow);
+
+
         return table;
     };
 
@@ -115,11 +129,31 @@ button.addEventListener("click", function() {
     minCust = this.form.minHour.value;
     maxCust = this.form.maxHour.value;
     avgSls = this.form.averageCust.value;
+    locations.push(new Location(locationName, minCust, maxCust, avgSls));
     var addedLoc = new Location(locationName, minCust, maxCust, avgSls);
+
     var returnedTable = addedLoc.addLocation();
 
     var tablesContainer = document.getElementById("tables");
     tablesContainer.appendChild(returnedTable);
+    runElementsArray();
 })
 
 // Delete Table
+
+var deleteRowsArray = document.getElementsByClassName('deleteRow');
+console.log(deleteRowsArray);
+
+function listenFor(i) {
+    deleteRowsArray[i].addEventListener("click", function name(params) {
+        console.log(this.parentNode.style.display)
+        this.parentNode.style.display = "none";
+    });
+}
+
+function runElementsArray() {
+    for (var i = 0; i < deleteRowsArray.length; i++) {
+        listenFor(i);
+    }
+};
+runElementsArray();

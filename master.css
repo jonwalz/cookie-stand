@@ -134,11 +134,18 @@ table tr:nth-child(even) {
 }
 table tr:hover {
     background-color: #1c0380;
-    
 }
-tr:last-child td{
+.totalRow {
     border-top: 2px solid #0F3E5C;
+    border-bottom: 2px solid #0F3E5C;
     height: 60px;
+}
+table tr:last-of-type {
+    text-align: right;
+}
+table tr:last-of-type td {
+    padding-right: 20px;
+    font-size: 12px;
 }
 .data {
     font-family: 'VT323', monospace;
