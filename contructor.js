@@ -6,9 +6,6 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales) {
     this.openHour = 10;
     this.closeHour = 18;
 
-    randomCustomersPerHour = function() {
-
-    };
     this.addLocation = function() {
 
         var table = document.createElement('table');
@@ -16,6 +13,7 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales) {
         var timeCel = document.createElement("th");
         timeCel.innerText = this.locationName;
         timeCol.appendChild(timeCel);
+
         var salesCel = document.createElement("th");
         salesCel.innerText = "Hourly Sales";
         timeCol.appendChild(salesCel);
