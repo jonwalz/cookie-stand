@@ -1,6 +1,7 @@
 #Code Fellows Cookie Store Project
 
-This is the second project for Code Fellows Coursework
+This is the second project for Code Fellows Coursework. An example of a fixtional food cart business.
+Daily sales information calculated and displayed in an app format.
 
 ## Usage
 
