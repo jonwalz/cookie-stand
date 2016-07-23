@@ -118,7 +118,9 @@ table th {
     font-weight: 300;
     font-size: 1.2em;
 }
-
+table th {
+    border-radius: 5px 5px 0 0;
+}
 table td {
     padding-left: 20px;
     width: 50%;
@@ -132,6 +134,7 @@ table tr:nth-child(even) {
 }
 table tr:hover {
     background-color: #1c0380;
+    
 }
 tr:last-child td{
     border-top: 2px solid #0F3E5C;

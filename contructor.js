@@ -109,7 +109,7 @@ runLocations();
 
 var button = document.getElementById('locationBtn');
 
-button.addEventListener("click", function(btn) {
+button.addEventListener("click", function() {
     var locationName, minCust, maxCust, avgSls;
     locationName = this.form.name.value;
     minCust = this.form.minHour.value;
@@ -122,3 +122,4 @@ button.addEventListener("click", function(btn) {
     tablesContainer.appendChild(returnedTable);
 })
 
+// Delete Table
