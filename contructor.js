@@ -145,9 +145,8 @@ var deleteRowsArray = document.getElementsByClassName('deleteRow');
 console.log(deleteRowsArray);
 
 function listenFor(i) {
-    deleteRowsArray[i].addEventListener("click", function name(params) {
-        console.log(this.parentNode.style.display)
-        this.parentNode.style.display = "none";
+    deleteRowsArray[i].addEventListener("click", function name(params) {     
+        this.parentNode.remove();
     });
 }
 
