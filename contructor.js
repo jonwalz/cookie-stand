@@ -10,7 +10,7 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales) {
 
     };
     this.addLocation = function() {
-        
+
         var table = document.createElement('table');
         var timeCol = document.createElement("tr");
         var timeCel = document.createElement("th");
@@ -35,24 +35,24 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales) {
             salesPerHour.push(parseInt(randCookiesSales));
         }
 
-        for (var i = 0; i < salesPerHour.length; i++) {    
+        for (var i = 0; i < salesPerHour.length; i++) {
             var tableRow = document.createElement('tr');
             var timeNode = document.createElement('td');
             var salesNode = document.createElement('td');
             var sales = document.createTextNode(salesPerHour[i]);
 
             var hour = openHour;
-            
+
             if (hour < 12) {
                 var timeAm = document.createTextNode(openHour + 'am');
                 timeNode.appendChild(timeAm);
                 salesNode.appendChild(sales);
-                
+
             } else if (hour == 12) {
                 var timeNoon = document.createTextNode(openHour + 'pm');
                 timeNode.appendChild(timeNoon);
                 salesNode.appendChild(sales);
-                
+
             } else {
                 var timePm = document.createTextNode(openHour - 12 + 'pm');
                 timeNode.appendChild(timePm);
@@ -63,7 +63,7 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales) {
             table.appendChild(tableRow);
             openHour++;
         }
-        
+
         // List total day sales
         var total = 0;
         for (var j = 0; j < salesPerHour.length; j++) {
@@ -94,22 +94,33 @@ var locations = [
     new Location("Pearl District", 3, 24, 2.6)
 ];
 
-for (var i = 0; i < locations.length; i++) {
-    
-    var newTable = locations[i].addLocation();
+function runLocations() {
 
-    var tablesContainer = document.getElementById("tables");
-    tablesContainer.appendChild(newTable);
+    for (var i = 0; i < locations.length; i++) {
 
+        var newTable = locations[i].addLocation();
+
+        var tablesContainer = document.getElementById("tables");
+        tablesContainer.appendChild(newTable);
+
+    };
 };
+runLocations();
 
 // Button logic
 
 var button = document.getElementById('locationBtn');
 
-button.addEventListener("click", function(){
+button.addEventListener("click", function() {
     var locationName, minCust, maxCust, avgSls;
     locationName = document.getElementById('name').value;
-    console.log(locationName);
-    Location();
+    minCust = document.getElementById('minHour').value;
+    maxCust = document.getElementById('maxHour').value;
+    avgSls = document.getElementById('averageCust').value;
+    var addedLoc = new Location(locationName, minCust, maxCust, avgSls);
+    var returnedTable = addedLoc.addLocation();
+
+    var tablesContainer = document.getElementById("tables");
+    tablesContainer.appendChild(returnedTable);
 })
+
