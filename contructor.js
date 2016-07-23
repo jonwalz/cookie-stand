@@ -110,7 +110,6 @@ runLocations();
 var button = document.getElementById('locationBtn');
 
 button.addEventListener("click", function(btn) {
-    console.log(this.form.name.value);
     var locationName, minCust, maxCust, avgSls;
     locationName = this.form.name.value;
     minCust = this.form.minHour.value;

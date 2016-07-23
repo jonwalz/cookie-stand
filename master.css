@@ -21,9 +21,13 @@ aside {
     padding: 0 30px;
     height: 100vh;
 }
+aside h1 {
+    margin-top: 0;
+}
 aside div {
     background-color: #2185C5;
 }
+
 .btn {
   -webkit-border-radius: 7;
   -moz-border-radius: 7;
@@ -62,9 +66,9 @@ section div:first-child {
     box-shadow: 0px 2px 15px rgba(15, 62, 92, .5);
 }
 form {
-    margin: 20px auto;
+    margin: 15px auto;
     border-radius: 5px;
-    padding: 1em;
+    padding: 0 1em;
 }
 
 form label, form input {
@@ -73,8 +77,10 @@ form label, form input {
     width: 100%;
     clear: both;
 }
+form h1 {
+    text-align: center;
+}
 form input {
-    /*margin-left: 20px;*/
     margin-bottom: 20px;
     height: 30px;
     font-size: 20px;
