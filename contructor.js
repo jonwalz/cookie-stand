@@ -64,7 +64,7 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales) {
 
         // List total day sales
         var total = 0;
-        for (var j = 0; j < salesPerHour.length; j++) {
+        for (var k = 0; k < salesPerHour.length; k++) {
             total += salesPerHour[j];
         }
         var totalRow = document.createElement('tr');
@@ -92,10 +92,8 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales) {
         deleteRow.appendChild(deleteCel);
         table.appendChild(deleteRow);
 
-
         return table;
     };
-
 }
 
 var locations = [
@@ -114,21 +112,23 @@ function runLocations() {
 
         var tablesContainer = document.getElementById("tables");
         tablesContainer.appendChild(newTable);
-
-    };
-};
+    }
+}
 runLocations();
 
 // Button logic
 
 var button = document.getElementById('locationBtn');
 
-button.addEventListener("click", function() {
+button.addEventListener("click", function(){addNewLocation(this.form);}, false);
+
+function addNewLocation(form) {
     var locationName, minCust, maxCust, avgSls;
-    locationName = this.form.name.value;
-    minCust = this.form.minHour.value;
-    maxCust = this.form.maxHour.value;
-    avgSls = this.form.averageCust.value;
+ 
+    locationName = form.name.value;
+    minCust = form.minHour.value;
+    maxCust = form.maxHour.value;
+    avgSls = form.averageCust.value;
     locations.push(new Location(locationName, minCust, maxCust, avgSls));
     var addedLoc = new Location(locationName, minCust, maxCust, avgSls);
 
@@ -137,12 +137,11 @@ button.addEventListener("click", function() {
     var tablesContainer = document.getElementById("tables");
     tablesContainer.appendChild(returnedTable);
     runElementsArray();
-})
+}
 
 // Delete Table
 
 var deleteRowsArray = document.getElementsByClassName('deleteRow');
-console.log(deleteRowsArray);
 
 function listenFor(i) {
     deleteRowsArray[i].addEventListener("click", function name(params) {     
@@ -154,5 +153,12 @@ function runElementsArray() {
     for (var i = 0; i < deleteRowsArray.length; i++) {
         listenFor(i);
     }
-};
+}
 runElementsArray();
+
+// Submit form when enter key is pressed
+
+document.getElementById("averageCust").addEventListener("keydown", function(e) {
+    console.log(e.target.form);
+    if (e.keyCode == 13) {  addNewLocation(e.target.form); }
+}, false);
