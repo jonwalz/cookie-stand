@@ -109,12 +109,13 @@ runLocations();
 
 var button = document.getElementById('locationBtn');
 
-button.addEventListener("click", function() {
+button.addEventListener("click", function(btn) {
+    console.log(this.form.name.value);
     var locationName, minCust, maxCust, avgSls;
-    locationName = document.getElementById('name').value;
-    minCust = document.getElementById('minHour').value;
-    maxCust = document.getElementById('maxHour').value;
-    avgSls = document.getElementById('averageCust').value;
+    locationName = this.form.name.value;
+    minCust = this.form.minHour.value;
+    maxCust = this.form.maxHour.value;
+    avgSls = this.form.averageCust.value;
     var addedLoc = new Location(locationName, minCust, maxCust, avgSls);
     var returnedTable = addedLoc.addLocation();
 
