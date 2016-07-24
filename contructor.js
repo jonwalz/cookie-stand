@@ -65,7 +65,7 @@ function Location(locationName, minHourlyCust, maxHourlyCust, averageSales) {
         // List total day sales
         var total = 0;
         for (var k = 0; k < salesPerHour.length; k++) {
-            total += salesPerHour[j];
+            total += salesPerHour[k];
         }
         var totalRow = document.createElement('tr');
         totalRow.className += "totalRow";
