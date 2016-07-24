@@ -52,8 +52,12 @@ section div:first-child {
     margin-top: -20px;
 }
 #logo {
+    position: absolute;
+    text-align: right;
     max-width: 160px;
+    right: 50px;
     vertical-align: middle;
+    margin-left: 50px;
 }
 #nav {
     font-size: 36px;
@@ -62,8 +66,12 @@ section div:first-child {
     position: fixed;
     top: 0;
     left: 0;
-    padding: 10px;
+    padding: 10px 30px;
     box-shadow: 0px 2px 15px rgba(15, 62, 92, .5);
+}
+#nav span {
+    width: 100%;
+    text-align: left;
 }
 form {
     margin: 15px auto;
